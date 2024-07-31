@@ -1,0 +1,44 @@
+.navbar{
+    background-color: rgb(173, 71, 71);
+    height: 50px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.navbar input{
+    width: 200px;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.25s;
+}
+
+
+
+.logo{
+    color: white;
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+.button_row{
+
+    display: flex;
+    gap: 5px;
+}
+
+button{
+    background-color: rgba(red, green, blue, alpha);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
