@@ -2,6 +2,7 @@ import React from 'react';
 import "./purchase_item.css"
 
 function Purchase_Item(params) {
+    
     return (
         <div className='purchase_item'>
             <img src='src\assets\RevealedGems.png' alt='gem_image' />

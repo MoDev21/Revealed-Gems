@@ -12,7 +12,6 @@ function Navbar() {
                 <input type="text" className="text" />
                 <button>Home</button>
                 <button>About</button>
-                <button>Contact</button>
             </div>
         </nav>
     )

@@ -8,7 +8,7 @@
 	border: 3px solid rgba(255, 255, 255, 0.125);
 	height: 450px;
 	width: 300px;
-    transition: .5s;
+    transition: .2s;
 
     img{
         height: 200px;
@@ -45,6 +45,6 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: rgba(183, 192, 209, 0.35);
     transform: scale(1.1);
-    
+    z-index: 1;
     cursor: pointer;
 }
