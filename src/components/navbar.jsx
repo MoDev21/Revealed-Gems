@@ -10,8 +10,8 @@ function Navbar() {
 
             <div className="button_row">
                 <input type="text" className="text" />
-                <button>Home</button>
-                <button>About</button>
+                <button className='navbar_button'>Home</button>
+                <button className='navbar_button'>About</button>
             </div>
         </nav>
     )

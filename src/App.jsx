@@ -20,12 +20,24 @@ function App() {
   return (
     <>
       <Navbar />
-      <div>
+      <div className="featured_items_container">
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
       </div>
       <div className="header_logo_container">
@@ -38,16 +50,16 @@ function App() {
       </button>
       <img src={portal} className="portal" alt="Vite logo" style={{scale: '1.5'}}/>
 
-      <p className="read-the-docs">
+      {/* <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
 
       <div className="items_container">
         {perchase_items.map((item, index) => (
           <Purchase_Item />
         ))}
       </div>
-      <Purchase_Item />
+      {/* <Purchase_Item /> */}
 
     </>
   )

@@ -41,7 +41,7 @@
 } */
 
 .purchase_item:hover{
-    border: 3px solid rgba(49, 193, 212, 0.25);
+    background-color: rgba(139, 146, 159, 0.35);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: rgba(183, 192, 209, 0.35);
     transform: scale(1.1);
