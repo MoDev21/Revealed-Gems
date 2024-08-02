@@ -45,7 +45,7 @@ function App() {
         <h1>Revealed <br /> Gems</h1>
       </div>
 
-      <button className='more_items_button' onClick={() => setCount((count) => count + 1)} style={{height: '100px', width: '200px'}}>
+      <button className='more_items_button' onClick={() => setCount((count) => count + 1)} style={{height: '200px', width: '250px'}}>
           count is {count}
       </button>
       <img src={portal} className="portal" alt="Vite logo" style={{scale: '1.5'}}/>
