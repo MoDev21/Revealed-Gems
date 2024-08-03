@@ -9,20 +9,21 @@ import './navbar.css';
 
 function Navbar() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+    const DropdownMenuArray = ['web dev', 'mobile dev', 'design', 'more'];
 
     
     const DropdownMenu = (
         <div className="dropdown_menu">
             <ul>
-                <li onClick={(e) => {
-                    e.stopPropagation();
-                    setIsDropdownOpen(!isDropdownOpen);
-                    console.log('theme changed')
-                }}>web dev</li>
-                <li>mobile dev</li>
-                <li>design</li>
-                <li>more</li>
+                {DropdownMenuArray.map((Option, index) => (
+                    <li key={index} onClick={(e) => {
+                        e.stopPropagation();
+                        setIsDropdownOpen(!isDropdownOpen);
+                        console.log('theme changed')
+                    }}>{Option}</li>
+                ))}
+
+
             </ul>
         </div>
     )
