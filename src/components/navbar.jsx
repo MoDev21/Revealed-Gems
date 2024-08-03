@@ -15,7 +15,11 @@ function Navbar() {
     const DropdownMenu = (
         <div className="dropdown_menu">
             <ul>
-                <li onClick={console.log('theme changed')}>web dev</li>
+                <li onClick={(e) => {
+                    e.stopPropagation();
+                    setIsDropdownOpen(!isDropdownOpen);
+                    console.log('theme changed')
+                }}>web dev</li>
                 <li>mobile dev</li>
                 <li>design</li>
                 <li>more</li>
