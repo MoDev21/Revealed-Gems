@@ -9,14 +9,15 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
   //`const [perchase_items, setperchase_items] = useState(0)
-  const perchase_items = [{name: 'Gem 1', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: 'https://via.placeholder.com/150'}, 
-  {name: 'Gem 2', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: 'https://via.placeholder.com/150'},
-  {name: 'Gem 3', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: 'https://via.placeholder.com/150'},
-  {name: 'Gem 4', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: 'https://via.placeholder.com/150'},
-  {name: 'Gem 5', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: 'https://via.placeholder.com/150'}, 
-  {name: 'Gem 6', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: 'https://via.placeholder.com/150'},
-  {name: 'Gem 7', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: 'https://via.placeholder.com/150'},
-  {name: 'Gem 8', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: 'https://via.placeholder.com/150'}]
+  const perchase_items = [{name: 'Gem 1', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'}, 
+  {name: 'Gem 2', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
+  {name: 'Gem 3', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
+  {name: 'Gem 4', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
+  {name: 'Gem 5', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'}, 
+  {name: 'Gem 6', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
+  {name: 'Gem 7', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
+  {name: 'Gem 8', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
+  {name: 'Gem 8', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'}]
   return (
     <>
       <Navbar />
@@ -56,7 +57,14 @@ function App() {
 
       <div className="items_container">
         {perchase_items.map((item, index) => (
-          <Purchase_Item />
+          console.log(item.name),
+          <Purchase_Item 
+            key={index}
+            name={item.name}
+            desc={item.desc}
+            price={item.price}
+            image={item.image}
+          />
         ))}
       </div>
       {/* <Purchase_Item /> */}

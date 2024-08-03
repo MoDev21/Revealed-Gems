@@ -1,14 +1,14 @@
 import React from 'react';
 import "./purchase_item.css"
 
-function Purchase_Item(params) {
+function Purchase_Item({name, desc, price, image}) {
     
     return (
         <div className='purchase_item'>
-            <img src='src\assets\RevealedGems.png' alt='gem_image' />
-            <h2>Gem Name</h2>
-            <p>This is a list of gems that have been revealed throughout the book.</p>
-            <h3>10.99</h3>
+            <img src={image} alt='gem_image' />
+            <h2>{name}</h2>
+            <p>{desc}</p>
+            <h3>{price}</h3>
         </div>
     );
 }
