@@ -43,7 +43,11 @@ function Navbar() {
         setButtonName(buttonId);
         console.log('buttonId: ' + buttonId);
         console.log('drop ' + isDropdownOpen);
-        setIsDropdownOpen(!isDropdownOpen);
+        setIsDropdownOpen(true);
+        if(buttonId !== 'category_dropdown' && buttonId !== 'sort_dropdown'){
+            setIsDropdownOpen(false);
+        }
+        
     }
     
 

@@ -8,6 +8,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   //`const [perchase_items, setperchase_items] = useState(0)
   const perchase_items = [
     {name: 'Gem 1', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'}, 
@@ -22,7 +23,10 @@ function App() {
   ]
   return (
     <>
-      <Navbar />
+      <Navbar 
+        isDropdownOpen={isDropdownOpen} 
+        setIsDropdownOpen={setIsDropdownOpen}
+      />
       <div className="featured_items_container">
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
