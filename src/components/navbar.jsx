@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import reactLogo from '../assets/react.svg'
 import './navbar.css';
@@ -7,12 +7,29 @@ import './navbar.css';
 
 
 
-function Navbar() {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+function Navbar({isDropdownOpen, setIsDropdownOpen}) {
+
     const dropDownMenuCategoryArray = ['web dev', 'mobile dev', 'design', 'more'];
     const dropdownMenuSortOptionsArray = ['name ↥', 'name ↧', 'price ↥', 'price ↧', 'date ↥', 'date ↧'];
     const [buttonName, setButtonName] = useState('');
+    const navbarRef = useRef(null);
     // const dropdownMenu = isDropdownOpen? DropdownMenu : '';
+    useEffect(() => {
+        function handleClickOutside(event) {
+            console.log(event.target.id + ' press outside navbar');
+            if(event.target.id !== 'category_dropdown' && event.target.id !== 'sort_dropdown'){
+                setIsDropdownOpen(false);
+            }
+        }
+
+
+        
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [setIsDropdownOpen]);
 
     const categoryMenuMapping = dropDownMenuCategoryArray.map((Option, index) => (
         <li key={index} onClick={(e) => {
@@ -44,10 +61,7 @@ function Navbar() {
         console.log('buttonId: ' + buttonId);
         console.log('drop ' + isDropdownOpen);
         setIsDropdownOpen(true);
-        if(buttonId !== 'category_dropdown' && buttonId !== 'sort_dropdown'){
-            setIsDropdownOpen(false);
-        }
-        
+
     }
     
 

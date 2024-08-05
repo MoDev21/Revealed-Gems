@@ -63,7 +63,6 @@ function App() {
 
       <div className="items_container">
         {perchase_items.map((item, index) => (
-          console.log(item.name),
           <Purchase_Item 
             key={index}
             name={item.name}
