@@ -9,23 +9,29 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [categories, setCategories] = useState('all');
+  
   //`const [perchase_items, setperchase_items] = useState(0)
   const perchase_items = [
-    {name: 'Gem 1', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'}, 
-    {name: 'Gem 2', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
-    {name: 'Gem 3', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
-    {name: 'Gem 4', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
-    {name: 'Gem 5', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'}, 
-    {name: 'Gem 6', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
-    {name: 'Gem 7', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
-    {name: 'Gem 8', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'},
-    {name: 'Gem 8', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png'}
-  ]
+    {name: 'Gem 1', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png',categorie:'electronics'}, 
+    {name: 'Gem 2', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png',categorie:'figdets'},
+    {name: 'Gem 3', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png',categorie:'figdets'},
+    {name: 'Gem 4', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png',categorie:'fitness'},
+    {name: 'Gem 5', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png',categorie:'fitness'}, 
+    {name: 'Gem 6', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png',categorie:'health'},
+    {name: 'Gem 7', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png',categorie:'health'},
+    {name: 'Gem 8', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png',categorie:'electronics'},
+    {name: 'Gem 8', desc: 'This is a list of gems that have been revealed throughout the book.', price: '10.99', image: './src/assets/RevealedGems.png',categorie:'electronics'},
+  ];
+
+  const filteredItems = perchase_items.filter(item => item.categorie === categories || categories === 'all');
+
   return (
     <>
       <Navbar 
         isDropdownOpen={isDropdownOpen} 
         setIsDropdownOpen={setIsDropdownOpen}
+        setCategories={setCategories}
       />
       <div className="featured_items_container">
         <a href="https://vitejs.dev" target="_blank">
@@ -62,13 +68,16 @@ function App() {
       </p> */}
 
       <div className="items_container">
-        {perchase_items.map((item, index) => (
+        {filteredItems.map((item, index) => (
+          
           <Purchase_Item 
             key={index}
             name={item.name}
             desc={item.desc}
             price={item.price}
             image={item.image}
+            categorie={item.categorie}
+             // Add a click event to this component for logging the selected category.  // You can use this in the purchase_item component.  // If you want to make the dropdown menu functional, you can add a state to this component and use it to control the dropdown menu display.  // You can use the "useState" hook from React to create a state variable for the dropdown menu display.  // You can also add a "handleDropdownToggle"
           />
         ))}
       </div>

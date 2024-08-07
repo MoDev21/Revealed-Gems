@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import reactLogo from '../assets/react.svg'
+import RevealedGemsLogo from '../assets/RevealedGemsDocumentLogo.png'
 import './navbar.css';
 
 
 
 
 
-function Navbar({isDropdownOpen, setIsDropdownOpen}) {
+function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, }) {
 
-    const dropDownMenuCategoryArray = ['web dev', 'mobile dev', 'design', 'more'];
+    const dropDownMenuCategoryArray = ['all', 'technology', 'health', 'figdets', 'electronics', 'fitness'];
     const dropdownMenuSortOptionsArray = ['name ↥', 'name ↧', 'price ↥', 'price ↧', 'date ↥', 'date ↧'];
     const [buttonName, setButtonName] = useState('');
     const navbarRef = useRef(null);
@@ -17,7 +18,7 @@ function Navbar({isDropdownOpen, setIsDropdownOpen}) {
     useEffect(() => {
         function handleClickOutside(event) {
             console.log(event.target.id + ' press outside navbar');
-            if(event.target.id !== 'category_dropdown' && event.target.id !== 'sort_dropdown'){
+            if(event.target.id !== 'category_dropdown' && event.target.id !== 'sort_dropdown' && event.target.id !== 'category_dropdown_li' && event.target.id !== 'sort_dropdown_li'){
                 setIsDropdownOpen(false);
             }
         }
@@ -32,15 +33,17 @@ function Navbar({isDropdownOpen, setIsDropdownOpen}) {
     }, [setIsDropdownOpen]);
 
     const categoryMenuMapping = dropDownMenuCategoryArray.map((Option, index) => (
-        <li key={index} onClick={(e) => {
+        <li id='category_dropdown_li' key={index} onClick={(e) => {
             e.stopPropagation();
+            setCategories(e.target.innerText);
             setIsDropdownOpen(!isDropdownOpen);
-            console.log('theme changed')
+            console.log(e.target.innerText);
+            
         }}>{Option}</li>
     ))
 
     const sortMenuMapping = dropdownMenuSortOptionsArray.map((Option, index) => (
-        <li key={index} onClick={(e) => {
+        <li id='sort_dropdown_li' key={index} onClick={(e) => {
             e.stopPropagation();
             setIsDropdownOpen(!isDropdownOpen);
         }}>{Option}</li>
@@ -68,7 +71,7 @@ function Navbar({isDropdownOpen, setIsDropdownOpen}) {
     return (
         <>
             <nav className="navbar">
-                <img src={reactLogo} alt="logo" className="nav_logo" />
+                <img src={RevealedGemsLogo} alt="logo" className="nav_logo"  style={{width: '3dvw'}}/>
 
                 <div className="button_row">
                     <input type="text" className="text" />
