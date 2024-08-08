@@ -8,12 +8,11 @@ import './navbar.css';
 
 
 
-function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, }) {
+function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, buttonName, setButtonName, sortOptions, setSortOptions, sortedItems }) {
 
-    const dropDownMenuCategoryArray = ['all', 'technology', 'health', 'figdets', 'electronics', 'fitness'];
+    const dropDownMenuCategoryArray = ['all', 'health', 'figdets', 'electronics', 'fitness'];
     const dropdownMenuSortOptionsArray = ['name ↥', 'name ↧', 'price ↥', 'price ↧', 'date ↥', 'date ↧'];
-    const [buttonName, setButtonName] = useState('');
-    const navbarRef = useRef(null);
+    
     // const dropdownMenu = isDropdownOpen? DropdownMenu : '';
     useEffect(() => {
         function handleClickOutside(event) {
@@ -22,8 +21,6 @@ function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, }) {
                 setIsDropdownOpen(false);
             }
         }
-
-
         
 
         document.addEventListener("mousedown", handleClickOutside);
@@ -46,6 +43,8 @@ function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, }) {
         <li id='sort_dropdown_li' key={index} onClick={(e) => {
             e.stopPropagation();
             setIsDropdownOpen(!isDropdownOpen);
+            setSortOptions(e.target.innerText);
+            console.log(sortedItems);
         }}>{Option}</li>
     ))
     
