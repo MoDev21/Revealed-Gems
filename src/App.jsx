@@ -43,6 +43,11 @@ function App() {
     }
   });
 
+  function filterNumberOfWords(description) {
+    const words = description.split(' ');
+    return words.length > 10 ? words.splice(0, 10).join(' ') + '...' : description;
+  }
+
   console.log(sortedItems);
   return (
     <>
@@ -56,20 +61,25 @@ function App() {
         setSortOptions={setSortOptions} 
         sortedItems={sortedItems} // Add a click event to this component for logging the selected sort option.  // You can use this in the purchase_item component.  // If you want to make the dropdown menu functional, you can add a state to this component and use it to control the dropdown menu display.  // You can use the "useState" hook from React to create a state variable for the dropdown menu display.  // You can also add a "handleDropdown
       />
+
       <div className="items_container">
-        {sortedItems.map((item, index) => (
-          <Purchase_Item 
-            key={index}
-            name={item.name}
-            desc={item.desc}
-            price={item.price}
-            image={item.image}
-            categorie={item.categorie}
-             // Add a click event to this component for logging the selected category.  // You can use this in the purchase_item component.  // If you want to make the dropdown menu functional, you can add a state to this component and use it to control the dropdown menu display.  // You can use the "useState" hook from React to create a state variable for the dropdown menu display.  // You can also add a "handleDropdownToggle"
-          />
-        ))}
+              {sortedItems.map((item, index) => (
+                
+
+
+                <Purchase_Item 
+                  key={index}
+                  name={item.name}
+                  desc={filterNumberOfWords(item.desc)}
+                  price={item.price}
+                  image={item.image}
+                  categorie={item.categorie}
+                  // Add a click event to this component for logging the selected category.  // You can use this in the purchase_item component.  // If you want to make the dropdown menu functional, you can add a state to this component and use it to control the dropdown menu display.  // You can use the "useState" hook from React to create a state variable for the dropdown menu display.  // You can also add a "handleDropdownToggle"
+                />
+              ))}
       </div>
-      {/* <div className="featured_items_container">
+
+      <div className="featured_items_container">
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -92,12 +102,14 @@ function App() {
       <div className="header_logo_container">
         <img src={'./src/assets/RevealedGems.png'} className="header_logo" alt="Revealed Gems logo" style={{scale: '1.5'}}/>
         <h1>Revealed <br /> Gems</h1>
-      </div> */}
+      </div>
 
-      {/* <button className='more_items_button' onClick={() => setCount((count) => count + 1)} style={{height: '200px', width: '250px'}}>
+      <button className='more_items_button' onClick={() => setCount((count) => count + 1)} style={{height: '200px', width: '250px'}}>
           count is {count}
-      </button> */}
+      </button>
       <img src={portal} className="portal" alt="Vite logo" style={{scale: '1.5'}}/>
+
+
 
       {/* <p className="read-the-docs">
         Click on the Vite and React logos to learn more
