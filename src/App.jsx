@@ -64,9 +64,6 @@ function App() {
 
       <div className="items_container">
               {sortedItems.map((item, index) => (
-                
-
-
                 <Purchase_Item 
                   key={index}
                   name={item.name}

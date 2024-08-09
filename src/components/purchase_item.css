@@ -1,6 +1,4 @@
 .purchase_item {
-	position: relative;
-	top: 50%;
 	backdrop-filter: blur(14px) saturate(152%);
 	-webkit-backdrop-filter: blur(14px) saturate(152%);
 	background-color: rgba(139, 146, 159, 0.35);
