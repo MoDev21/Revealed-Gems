@@ -136,5 +136,6 @@
   gap: 10px;
   justify-content: flex-start;
   flex-wrap: wrap;
-  width: 85%;
+  width: 86%;
+  margin-top: 50px;
 }

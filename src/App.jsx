@@ -45,7 +45,7 @@ function App() {
 
   function filterNumberOfWords(description) {
     const words = description.split(' ');
-    return words.length > 10 ? words.splice(0, 10).join(' ') + '...' : description;
+    return words.length > 15 ? words.splice(0, 15).join(' ') + '...' : description;
   }
 
   console.log(sortedItems);
@@ -61,6 +61,7 @@ function App() {
         setSortOptions={setSortOptions} 
         sortedItems={sortedItems} // Add a click event to this component for logging the selected sort option.  // You can use this in the purchase_item component.  // If you want to make the dropdown menu functional, you can add a state to this component and use it to control the dropdown menu display.  // You can use the "useState" hook from React to create a state variable for the dropdown menu display.  // You can also add a "handleDropdown
       />
+
 
       <div className="items_container">
               {sortedItems.map((item, index) => (

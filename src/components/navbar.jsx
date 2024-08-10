@@ -73,7 +73,11 @@ function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, buttonName, s
                 <img src={RevealedGemsLogo} alt="logo" className="nav_logo"  style={{width: '3dvw'}}/>
 
                 <div className="button_row">
-                    <input type="text" className="text" />
+                    <div className="search_containter">
+                        <img src={reactLogo} alt="react_logo" className="react_logo" />
+                        <input type="text" className="text" />
+                    </div>
+                    
                     
                     <button className='navbar_button' id='category_dropdown' onClick={(e) => DropdownMenu_drop(e)}>Categories{isDropdownOpen && buttonName === 'category_dropdown' ? DropdownMenu : ''}</button>
                     
