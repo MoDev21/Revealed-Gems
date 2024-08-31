@@ -44,7 +44,11 @@ function App() {
     }
   });
 
-  const searchedItems = sortedItems.filter(item => item.name.toLowerCase().includes(searchText));
+  function searchFiltering(item) {
+    return item.name.toLowerCase().includes(searchText) || item.categorie.toLowerCase().includes(searchText);
+  }
+  const searchedItems = sortedItems.filter(item => searchFiltering(item));
+  
   
 
   function filterNumberOfWords(description) {
