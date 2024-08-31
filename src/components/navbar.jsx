@@ -9,18 +9,17 @@ import './navbar.css';
 
 
 
-function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, buttonName, setButtonName, sortOptions, setSortOptions, sortedItems }) {
+function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, buttonName, setButtonName, sortOptions, setSortOptions, sortedItems, setSearchText, searchText }) {
 
     const dropDownMenuCategoryArray = ['all', 'health', 'figdets', 'electronics', 'fitness'];
     const dropdownMenuSortOptionsArray = ['default', 'name ↥', 'name ↧', 'price ↥', 'price ↧', 'date ↥', 'date ↧'];
-    const [searchText, setSearchText] = useState('');
+    const [categorieText, setCategorieText] = useState('');
     const [sortText, setSortText] = useState('');
     // const dropdownMenu = isDropdownOpen? DropdownMenu : '';
 
-    console.log('searchText ', searchText);
+
     useEffect(() => {
         function handleClickOutside(event) {
-            console.log(event.target.id + ' press outside navbar');
             if(event.target.id !== 'category_dropdown' && event.target.id !== 'sort_dropdown' && event.target.id !== 'category_dropdown_li' && event.target.id !== 'sort_dropdown_li'){
                 setIsDropdownOpen(false);
             }
@@ -38,8 +37,8 @@ function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, buttonName, s
             e.stopPropagation();
             setCategories(e.target.innerText);
             setIsDropdownOpen(!isDropdownOpen);
-            setSearchText(e.target.innerText);
-            console.log(searchText);
+            setCategorieText(e.target.innerText);
+
             
         }}>{Option}</li>
     ))
@@ -50,7 +49,7 @@ function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, buttonName, s
             setIsDropdownOpen(!isDropdownOpen);
             setSortOptions(e.target.innerText);
             setSortText(e.target.innerText);
-            console.log(sortedItems);
+
         }}>{Option}</li>
     ))
     
@@ -66,10 +65,13 @@ function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, buttonName, s
     function DropdownMenu_drop(e){
         const buttonId = e.currentTarget.id;
         setButtonName(buttonId);
-        console.log('buttonId: ' + buttonId);
-        console.log('drop ' + isDropdownOpen);
         setIsDropdownOpen(true);
 
+    }
+
+    function handleSearchInput(e) {
+        setSearchText(e.target.value);
+        console.log(searchText);
     }
 
 
@@ -86,8 +88,8 @@ function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, buttonName, s
                             <img src={search} alt="react_logo" className="react_logo" />
                         </button>
                         <input 
-                            value={''}
-                            onChange={() => {}}
+                            value={searchText}
+                            onChange={handleSearchInput}
                             placeholder="Search"
                             type="text" 
                             className="text" 
@@ -103,19 +105,19 @@ function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, buttonName, s
                     >
                         <p
                             style={{
-                                transform: searchText === 'all' || searchText === "" ? 'translateY(0)' : 'translateY(-10px)',
-                                color: searchText === 'all' || searchText === "" ? 'white' : 'rgb(159, 177, 193)',
-                                fontSize: searchText === 'all' || searchText === "" ? '1rem' : '.9rem',
+                                transform: categorieText === 'all' || categorieText === "" ? 'translateY(0)' : 'translateY(-10px)',
+                                color: categorieText === 'all' || categorieText === "" ? 'white' : 'rgb(213, 149, 172)',
+                                fontSize: categorieText === 'all' || categorieText === "" ? '1rem' : '.9rem',
                             }}
                         >
-                            Categorie{searchText === 'all' || searchText === "" ? '' : ':'}
+                            Categorie{categorieText === 'all' || categorieText === "" ? '' : ':'}
                         </p>
                         <p
                             style={{
-                                transform: searchText === 'all' ? 'translateY(0px)' : 'translateY(5px)',
+                                transform: categorieText === 'all' ? 'translateY(0px)' : 'translateY(5px)',
                             }}
                         >
-                            {searchText === 'all' ? '' : searchText}
+                            {categorieText === 'all' ?  '' : categorieText}
                         </p>
                         {isDropdownOpen && buttonName === 'category_dropdown' ? DropdownMenu : ''}
                         {/* {DropdownMenu} */}
@@ -129,7 +131,7 @@ function Navbar({isDropdownOpen, setIsDropdownOpen, setCategories, buttonName, s
                         <p
                             style={{
                                 transform: sortText === 'default' || sortText === "" ? 'translateY(0)' : 'translateY(-10px)',
-                                color: sortText === 'default' || sortText === "" ? 'white' : 'rgb(159, 177, 193)',
+                                color: sortText === 'default' || sortText === "" ? 'white' : 'rgb(213, 149, 172)',
                                 fontSize: sortText === 'default' || sortText === "" ? '1rem' : '.9rem',
                             }}
                         >
