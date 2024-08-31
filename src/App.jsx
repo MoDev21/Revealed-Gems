@@ -30,19 +30,21 @@ function App() {
   const filteredItems = perchase_items.filter(item => item.categorie === categories || categories === 'all') ;
 
   const sortedItems = filteredItems.sort((a, b) => {
-    if (sortOptions === 'name ↥') {
+    if ((sortOptions === 'name ↥')) {
        return a.name.localeCompare(b.name);
     }
-    else if (sortOptions === 'name ↧') {
+    else if ((sortOptions === 'name ↧')) {
        return b.name.localeCompare(a.name);
     }
-    else if (sortOptions === 'price ↥') {
+    else if ((sortOptions === 'price ↥')) {
        return parseFloat(a.price) - parseFloat(b.price);
     }
-    else if (sortOptions === 'price ↧') {
+    else if ((sortOptions === 'price ↧')) {
        return parseFloat(b.price) - parseFloat(a.price);
     }
   });
+
+  const searchedItems = sortedItems.filter(item => item.name.toLowerCase().includes(searchText));
   
 
   function filterNumberOfWords(description) {
@@ -74,7 +76,7 @@ function App() {
 
 
       <div className="items_container">
-              {sortedItems.map((item, index) => (
+              {searchedItems.map((item, index) => (
                 <Purchase_Item 
                   key={index}
                   name={item.name}
