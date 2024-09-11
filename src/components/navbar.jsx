@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import reactLogo from '../assets/react.svg'
 import RevealedGemsLogo from '../assets/RevealedGemsDocumentLogo.png'
 import search from '../assets/search.svg'
-import './navbar.css';
+import './navbar.scss';
 
 
 

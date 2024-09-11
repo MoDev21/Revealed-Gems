@@ -1,5 +1,5 @@
 import React from 'react';
-import "./purchase_item.css"
+import "./purchase_item.scss"
 
 function Purchase_Item({name, desc, price, image, categorie}) {
 
@@ -10,7 +10,7 @@ function Purchase_Item({name, desc, price, image, categorie}) {
             <img src={image} alt='gem_image' />
             <h2>{name}</h2>
             <p>{desc}</p>
-            <h3>{price}</h3>
+            {/* <h3>{price}</h3> */}
             <p>{categorie}</p>
         </div>
     );

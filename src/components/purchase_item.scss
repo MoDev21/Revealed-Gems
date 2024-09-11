@@ -1,0 +1,83 @@
+$purchase-item-backdrop-filter: blur(14px) saturate(152%);
+$purchase-item-background-color: rgba(139, 146, 159, 0.35);
+$purchase-item-border-radius: 12px;
+$purchase-item-border-width: 3px;
+$purchase-item-border-color: rgba(255, 255, 255, 0.125);
+$purchase-item-height: auto;
+$purchase-item-width: 300px;
+$purchase-item-transition: .2s ease-in-out;
+$purchase-item-hover-background-color: rgba(162, 169, 182, 0.89);
+$purchase-item-hover-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+$purchase-item-hover-transform: scale(1.1);
+$purchase-item-hover-z-index: 1;
+$purchase-item-hover-cursor: pointer;
+$purchase_item-color: white;
+
+
+
+.purchase_item {
+  backdrop-filter: $purchase-item-backdrop-filter;
+  -webkit-backdrop-filter: $purchase-item-backdrop-filter;
+  -moz-backdrop-filter: $purchase-item-backdrop-filter;
+  -ms-backdrop-filter: $purchase-item-backdrop-filter;
+  -o-backdrop-filter: $purchase-item-backdrop-filter;
+
+  background-color: $purchase-item-background-color;
+  border-radius: 12px;
+  border: 3px solid $purchase-item-border-color;
+  height: auto;
+  width: 300px;
+  transition: .2s ease-in-out;
+  
+  img {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  p {
+    margin: 20px;
+
+    font: {
+      weight: 400;
+      size: 0.8rem;
+      
+    };
+    color: $purchase_item-color;
+  }
+
+  h3 {
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+}
+  
+.purchase_item:hover {
+  // background-color: $purchase-item-hover-background-color;
+  box-shadow: 0 0 20px $purchase-item-hover-box-shadow;
+  transform: scale(1.1);
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+.purchase_item:not(.backdrop-filter-supported) {
+  background-color: rgba(139, 146, 159, 0.35);
+  border-radius: 12px;
+  border: 3px solid rgba(255, 255, 255, 0.125);
+}
+
+@supports (backdrop-filter: blur(14px)) {
+.purchase_item:not(.backdrop-filter-supported) {
+    backdrop-filter: blur(14px) saturate(152%);
+    -webkit-backdrop-filter: blur(14px) saturate(152%);
+    -moz-backdrop-filter: blur(14px) saturate(152%);
+    -ms-backdrop-filter: blur(14px) saturate(152%);
+    -o-backdrop-filter: blur(14px) saturate(152%);
+
+    transition: .2s ease-in-out;
+}
+
+/* Add class to elements that support backdrop-filter */
+.purchase_item.backdrop-filter-supported {}
+}

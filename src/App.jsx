@@ -4,7 +4,7 @@ import portal from './assets/portal.svg'
 import viteLogo from '/vite.svg'
 import Navbar from './components/navbar.jsx'
 import Purchase_Item from './components/purchase_item.jsx'
-import './App.css'
+import './App.scss'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -47,6 +47,7 @@ function App() {
   function searchFiltering(item) {
     return item.name.toLowerCase().includes(searchText) || item.categorie.toLowerCase().includes(searchText);
   }
+  
   const searchedItems = sortedItems.filter(item => searchFiltering(item));
   
   
