@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import "./purchase_item.scss"
 
-function Purchase_Item({ key, name, desc, price, image, categorie, isItemToggled, setIsItemToggled}) {
+function Purchase_Item({ key, name, selectedName, setSelectedName, desc, price, image, categorie, isItemToggled, setIsItemToggled}) {
 
-    
-    function handleclickevent(e) {
+
+
+    function handleclickevent(event, handledname) {
         event.stopPropagation()
-        console.log('gem clicked key ' + e.key);
+        console.log('gem clicked key ' + handledname);
         setIsItemToggled(!isItemToggled)
+        setSelectedName(handledname)
+        console.log(selectedName);
     }
 
     function getIndex(index) {
@@ -16,14 +19,14 @@ function Purchase_Item({ key, name, desc, price, image, categorie, isItemToggled
     }
     
     return (
-        <div className={isItemToggled ? 'purchase_item_modalbox' : 'purchase_item'} onClick={handleclickevent}>
+        <div className={isItemToggled && selectedName === name ? 'purchase_item_modalbox' : 'purchase_item'} onClick={(event) => handleclickevent(event, name)}>
             <img src={image} alt='gem_image' />
             <div className="purchase_item__info_container">
                 <h2>{name}</h2>
                 <p>{desc}</p>
                 {/* <h3>{price}</h3> */}
                 <p>{categorie}</p>
-                {isItemToggled ? <button>buy on Amazon</button> : ''}
+                {isItemToggled && selectedName === name ? <button>buy on Amazon</button> : ''}
             </div>
 
         </div>

@@ -14,6 +14,7 @@ function App() {
   const [buttonName, setButtonName] = useState('');
   const [searchText, setSearchText] = useState('');
   const [isItemToggled, setIsItemToggled] = useState(false)
+  const [selectedName, setSelectedName] = useState('')
 
   //`const [perchase_items, setperchase_items] = useState(0)
   const perchase_items = [
@@ -149,7 +150,9 @@ function App() {
                 <Purchase_Item 
                   key={index}
                   name={item.name}
-                  desc={isItemToggled ? item.desc : filterNumberOfWords(item.desc)}
+                  selectedName={selectedName}
+                  setSelectedName={setSelectedName}
+                  desc={isItemToggled && selectedName === item.name ? item.desc : filterNumberOfWords(item.desc)}
                   price={item.price}
                   image={item.image}
                   categorie={item.categorie}
