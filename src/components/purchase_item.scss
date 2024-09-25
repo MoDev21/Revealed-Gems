@@ -73,101 +73,128 @@ $purchase_item-color: white;
 }
 
 @supports (backdrop-filter: blur(14px)) {
-.purchase_item:not(.backdrop-filter-supported) {
-    backdrop-filter: blur(14px) saturate(152%);
-    -webkit-backdrop-filter: blur(14px) saturate(152%);
-    -moz-backdrop-filter: blur(14px) saturate(152%);
-    -ms-backdrop-filter: blur(14px) saturate(152%);
-    -o-backdrop-filter: blur(14px) saturate(152%);
+  .purchase_item:not(.backdrop-filter-supported) {
+      backdrop-filter: blur(14px) saturate(152%);
+      -webkit-backdrop-filter: blur(14px) saturate(152%);
+      -moz-backdrop-filter: blur(14px) saturate(152%);
+      -ms-backdrop-filter: blur(14px) saturate(152%);
+      -o-backdrop-filter: blur(14px) saturate(152%);
 
-    transition: .2s ease-in-out;
-}
+      transition: .2s ease-in-out;
+  }
 
-/* Add class to elements that support backdrop-filter */
-// .purchase_item.backdrop-filter-supported {}
-// }
-
-
-
-.purchase_item_modalbox {
-  backdrop-filter: $purchase-item-backdrop-filter;
-  -webkit-backdrop-filter: $purchase-item-backdrop-filter;
-  -moz-backdrop-filter: $purchase-item-backdrop-filter;
-  -ms-backdrop-filter: $purchase-item-backdrop-filter;
-  -o-backdrop-filter: $purchase-item-backdrop-filter;
-  $purchase-item-background-color: rgba(59, 99, 172, 0.35);
-  background-color: $purchase-item-background-color;
-  border-radius: 12px;
-  border: 3px solid $purchase-item-border-color;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: relative;
-  transform-origin: 50% 50%;
-  // animation: modalbox_moving 0.5s ease-in-out;
-  z-index: 1;
-  position: fixed;
- 
-
-  // &.sticky {
-  //   position: sticky;
-  //   top: 20vh; // Adjust based on your layout
+  /* Add class to elements that support backdrop-filter */
+  // .purchase_item.backdrop-filter-supported {}
   // }
 
-  @mixin animation_on_click($from-x, $from-y, $duration) {
-    animation: modalbox_moving $duration forwards;
-    @keyframes modalbox_moving {
-      0% {
-        top: var(--mouse-y);
-        left: var(--mouse-x);
-        height: 450px;
-        width: 300px;
-        transform: translate(-50%, -50%);
-      }
-      100% {
-        background-color: rgba(167, 177, 187, 0.507);
-        top: 50%;
-        left: 50%;
-        height: 700px;
-        width: 1000px;
-        transform: translate(-50%, -50%);
-      }
-    }
-  }
 
-  // @include animation_on_click(calc(50vh - 50%), calc(50vw - 50%), 500ms ease-in-out);
- @include animation_on_click(--mouse-x, --mouse-y, .75s);
-  
-  .purchase_item__info_container{
 
-    width: 100%;
+  .purchase_item_modalbox {
+    backdrop-filter: $purchase-item-backdrop-filter;
+    -webkit-backdrop-filter: $purchase-item-backdrop-filter;
+    -moz-backdrop-filter: $purchase-item-backdrop-filter;
+    -ms-backdrop-filter: $purchase-item-backdrop-filter;
+    -o-backdrop-filter: $purchase-item-backdrop-filter;
+    $purchase-item-background-color: rgba(59, 99, 172, 0.35);
+    background-color: $purchase-item-background-color;
+    border-radius: 12px;
+    border: 3px solid $purchase-item-border-color;
+
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    img {
-      height: 200px;
-      object-fit: cover;
+    position: relative;
+    transform-origin: 50% 50%;
+    z-index: 1;
+    position: fixed;
+
+
+    @mixin animation_on_click($from-x, $from-y, $duration) {
+      animation: modalbox_moving $duration forwards;
+      @keyframes modalbox_moving {
+        0% {
+          top: var(--mouse-y);
+          left: var(--mouse-x);
+          height: 450px;
+          width: 300px;
+          transform: translate(-50%, -50%);
+        }
+        100% {
+          background-color: rgba(167, 177, 187, 0.507);
+          top: 50%;
+          left: 50%;
+          height: 700px;
+          width: 1000px;
+          transform: translate(-50%, -50%);
+        }
+      }
     }
-  
-    p {
-      margin: 20px;
-  
-      font: {
-        weight: 400;
-        size: 0.8rem;
-        
-      };
-      color: $purchase_item-color;
-    }
-  
-    h3 {
-      font-size: 2rem;
-      padding: 0;
-      margin: 0;
+
+    // @include animation_on_click(calc(50vh - 50%), calc(50vw - 50%), 500ms ease-in-out);
+    @include animation_on_click(--mouse-x, --mouse-y, .75s);
+    
+    .purchase_item__info_container{
+
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      
+      img {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .exit_icon{
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        height: 5dvh;
+        width: 5dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(139, 146, 159, 0);
+        border-radius: 50px;
+        transition: .5s;
+        border-style: none;
+      }
+
+      .exit_icon:hover{
+        background-color: rgba(139, 146, 159, 0.5);
+        border-style: none;
+      }
+
+      .exit_icon img{
+        position: relative;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        height: 2dvh;
+        width: 2dvh;
+      }
+    
+      p {
+        margin: 20px;
+    
+        font: {
+          weight: 400;
+          size: 0.8rem;
+          
+        };
+        color: $purchase_item-color;
+      }
+    
+      h3 {
+        font-size: 2rem;
+        padding: 0;
+        margin: 0;
+      }
+      
     }
   }
-}
 
 }
+

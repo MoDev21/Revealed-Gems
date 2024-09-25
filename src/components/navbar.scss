@@ -20,6 +20,7 @@ $navbar-background-color: rgba(139, 146, 159, 0.35);
     padding: 5px;
     z-index: 2;
     margin-top: 5dvh;
+    position: fixed;
 
     .search_containter{
         display: flex;

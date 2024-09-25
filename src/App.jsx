@@ -164,6 +164,8 @@ function App() {
               ))}
       </div>
 
+      <div className={isItemToggled ? "background_blur_appear" : "background_blur_disappear"}></div>
+
       <div className="featured_items_container">
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -194,7 +196,7 @@ function App() {
       </button>
       <img src={portal} className="portal" alt="Vite logo" style={{scale: '1.5'}}/>
 
-
+      
 
       {/* <p className="read-the-docs">
         Click on the Vite and React logos to learn more

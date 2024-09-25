@@ -137,5 +137,48 @@
   justify-content: center;
   flex-wrap: wrap;
   width: 86%;
-  margin-top: 50px;
+  margin-top: 150px;
+}
+
+.background_blur_appear {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  animation: background_blur_appear_animation 1.5s forwards;
+
+  @keyframes background_blur_appear_animation {
+    0%{
+      backdrop-filter: blur(0px);
+    }
+    100%{
+      backdrop-filter: blur(14px);
+    }
+  }
+}
+
+.background_blur_disappear {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  animation: background_blur_disappear_animation .3s forwards;
+  -webkit-animation: background_blur_disappear_animation .3s forwards;
+
+  @keyframes background_blur_disappear_animation {
+    0%{
+      backdrop-filter: blur(14px);
+    }
+    100%{
+      backdrop-filter: blur(0px);
+      visibility: hidden;
+    }
+  }
+
+  
+
 }
